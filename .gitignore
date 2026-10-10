@@ -1,0 +1,14 @@
+# Temporary scratch files and test artifacts
+scripts/corner_*.jpg
+scripts/patch*.png
+scripts/vis_*.png
+scripts/watermark_*.png
+scripts/test_*.jpg
+scripts/bottom_*.jpg
+scripts/final_*.jpg
+scripts/test-connection.js
+
+# Environment & System
+.env
+.DS_Store
+Thumbs.db

@@ -1,0 +1,10 @@
+root: theme
+
+LiquidComplexity:
+  enabled: false
+
+MatchingTranslations:
+  enabled: false
+
+TemplateLength:
+  enabled: false

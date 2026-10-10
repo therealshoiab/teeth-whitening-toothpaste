@@ -1,0 +1,88 @@
+{
+  "storeInfo": {
+    "brandName": "Perfora",
+    "tagline": "Elevate Your Everyday Oral Wellness",
+    "primaryCategory": "Oral Care & Wellness",
+    "targetAudience": "Health and aesthetics-conscious consumers"
+  },
+  "collections": [
+    {
+      "title": "Teeth Whitening",
+      "description": "Clinically formulated, peroxide-free teeth whitening solutions for bright smiles.",
+      "handle": "teeth-whitening"
+    },
+    {
+      "title": "Daily Oral Care",
+      "description": "Clean, gentle toothpaste and toothbrush sets.",
+      "handle": "daily-oral-care"
+    }
+  ],
+  "products": [
+    {
+      "title": "Perfora Purple Teeth Whitening Strips | 3 Treatments (6 Strips) | Mint",
+      "category": "Whitening Strips",
+      "price": "799.00",
+      "compareAtPrice": "999.00",
+      "sku": "PWS-PPL-001",
+      "inventoryQuantity": 150,
+      "description": "Purple color-correcting whitening strips, peroxide-free, specially formulated for sensitive teeth. Dissolves naturally with fresh mint flavor.",
+      "tags": ["whitening", "strips", "bestseller", "purple"],
+      "image": "perfora_purple_whitening_strips.jpg"
+    },
+    {
+      "title": "Perfora Teeth Whitening Strips | 3 Treatments (6 Strips) | Classic Mint",
+      "category": "Whitening Strips",
+      "price": "799.00",
+      "compareAtPrice": "999.00",
+      "sku": "PWS-CLM-002",
+      "inventoryQuantity": 120,
+      "description": "Clean, peroxide-free teeth whitening strips delivering visible brightness with a soothing classic mint sensation.",
+      "tags": ["whitening", "strips", "classic mint"],
+      "image": "perfora_classic_mint_strips.jpg"
+    },
+    {
+      "title": "Perfora Teeth Whitening Combo | 2 Toothbrushes + Charcoal Toothpaste 100 g",
+      "category": "Teeth Care Set",
+      "price": "999.00",
+      "compareAtPrice": "1499.00",
+      "sku": "PWC-SET-003",
+      "inventoryQuantity": 80,
+      "description": "Complete oral care set featuring 2 ergonomic designer toothbrushes and 100g of activated charcoal whitening toothpaste.",
+      "tags": ["combo", "set", "toothpaste", "toothbrush"],
+      "image": "perfora_teeth_whitening_combo.jpg"
+    },
+    {
+      "title": "Perfora Activated Charcoal Whitening Toothpaste, 100 g | Watermelon Mint",
+      "category": "Whitening Toothpaste",
+      "price": "299.00",
+      "compareAtPrice": "499.00",
+      "sku": "PCT-WMM-004",
+      "inventoryQuantity": 200,
+      "description": "Detoxifying activated charcoal toothpaste infused with fresh watermelon mint. Enamel safe with zero SLS.",
+      "tags": ["toothpaste", "charcoal", "watermelon mint"],
+      "image": "perfora_activated_charcoal_toothpaste.jpg"
+    },
+    {
+      "title": "Perfora Purple Whitening Toothpaste, 75 g | Grape Mint",
+      "category": "Whitening Toothpaste",
+      "price": "399.00",
+      "compareAtPrice": "599.00",
+      "sku": "PPT-GPM-005",
+      "inventoryQuantity": 180,
+      "description": "Color-correcting purple whitening toothpaste neutralizing yellow undertones. Delicious grape mint flavor.",
+      "tags": ["toothpaste", "purple", "whitening", "grape mint"],
+      "image": "perfora_purple_whitening_toothpaste.jpg"
+    },
+    {
+      "title": "Perfora Purple Teeth Whitening Toothpaste Serum, 30 ml | Apple Peach",
+      "category": "Whitening Serum",
+      "price": "799.00",
+      "compareAtPrice": "999.00",
+      "sku": "PWS-SER-006",
+      "inventoryQuantity": 110,
+      "description": "Concentrated color-correcting purple serum designed for instant post-brushing brightening. Non-invasive with delightful apple peach notes.",
+      "tags": ["serum", "purple", "whitening", "instant"],
+      "image": "perfora_purple_whitening_serum.jpg"
+    }
+  ]
+}

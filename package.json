@@ -1,0 +1,24 @@
+{
+  "name": "shopify-automated-store",
+  "version": "1.0.0",
+  "description": "Automated Shopify store setup and management for physical products",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test-connection": "node scripts/test-connection.js",
+    "theme:dev": "shopify theme dev",
+    "theme:pull": "shopify theme pull",
+    "theme:push": "shopify theme push"
+  },
+  "keywords": [
+    "shopify",
+    "ecommerce",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@shopify/shopify-api": "^15.0.1",
+    "dotenv": "^18.0.6"
+  }
+}
