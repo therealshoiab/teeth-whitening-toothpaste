@@ -1,0 +1,96 @@
+{
+  "sections": {
+    "hero_banner": {
+      "type": "luxury-hero-banner",
+      "settings": {
+        "heading": "Elevate Your Everyday Oral Wellness",
+        "subheading": "Peroxide-free teeth whitening powered by instantcolor correction science.",
+        "button_label": "Shop All Bestsellers",
+        "button_link": "shopify://collections/all",
+        "video": "shopify://files/videos/Purple_toothpaste_product_advert…_1080p_20261010104927.mp4",
+        "video_url": "",
+        "overlay_opacity": 30,
+        "desktop_height": 550,
+        "mobile_height": 380,
+        "desktop_position": "center right",
+        "mobile_position": "center center"
+      }
+    },
+    "trust_bar": {
+      "type": "trust-usp-bar",
+      "settings": {}
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Bestselling Perfora Essentials",
+        "heading_size": "h2",
+        "description": "<p>Clinically tested, clean oral care formulated for noticeable results without sensitivity.</p>",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 6,
+        "columns_desktop": 2,
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": false,
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "columns_mobile": "2",
+        "padding_top": 40,
+        "padding_bottom": 48
+      }
+    },
+    "video_ad_showcase": {
+      "type": "video",
+      "settings": {
+        "heading": "See Purple Magic in Action",
+        "heading_size": "h1",
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/Purple_Magic_toothpaste_product_ad_20261008164052.mp4",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 48
+      }
+    },
+    "feature_showcase": {
+      "type": "video-feature-showcase",
+      "settings": {
+        "title": "Gentle on Enamel. Powerful on Stains.",
+        "description": "Traditional whitening strips rely on harsh hydrogen peroxide that strips protective enamel and causes sharp pain. Perfora combines biocompatible minerals with color science to brighten smiles naturally.",
+        "video": "shopify://files/videos/Man_brushing_teeth_with_toothpaste_20261008165950.mp4",
+        "color_scheme": "scheme-2"
+      }
+    },
+    "customer_reviews": {
+      "type": "customer-reviews",
+      "settings": {
+        "title": "What Customers Are Saying After Using Our Products",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "faq": {
+      "type": "custom-faq",
+      "settings": {
+        "color_scheme": "scheme-2"
+      }
+    }
+  },
+  "order": [
+    "hero_banner",
+    "trust_bar",
+    "featured_collection",
+    "video_ad_showcase",
+    "feature_showcase",
+    "customer_reviews",
+    "faq"
+  ]
+}

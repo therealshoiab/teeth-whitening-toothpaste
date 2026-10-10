@@ -1,0 +1,342 @@
+{% style %}
+  .luxury-hero-wrapper {
+    position: relative;
+    width: 100%;
+    height: var(--hero-desk-height, 460px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 749px) {
+    .luxury-hero-wrapper {
+      height: var(--hero-mob-height, 340px);
+    }
+  }
+
+  .luxury-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .luxury-hero-img,
+  .luxury-hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ section.settings.desktop_position | default: 'center right' }};
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* Seamless soft horizontal vignette to ensure white text is 100% readable without cards/boxes */
+  .luxury-hero-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(10, 4, 24, 0.82) 0%, rgba(16, 7, 34, 0.6) 42%, rgba(20, 10, 40, 0.2) 68%, rgba(0, 0, 0, 0) 85%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  @media screen and (max-width: 749px) {
+    .luxury-hero-img,
+    .luxury-hero-video {
+      object-position: {{ section.settings.mobile_position | default: 'center center' }} !important;
+    }
+
+    .luxury-hero-wrapper {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .luxury-hero-container {
+      justify-content: center;
+      text-align: center;
+      padding: 0 1.6rem;
+    }
+
+    .luxury-hero-text-block {
+      max-width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    .luxury-hero-heading {
+      font-size: clamp(2.4rem, 6vw, 3.2rem) !important;
+      margin: 0 0 0.8rem 0 !important;
+      text-align: center;
+    }
+
+    .luxury-hero-subheading {
+      font-size: 1.35rem !important;
+      margin: 0 0 1.8rem 0 !important;
+      max-width: 330px;
+      text-align: center;
+    }
+
+    .luxury-hero-btn-wrap {
+      justify-content: center;
+    }
+
+    .luxury-hero-gradient-overlay {
+      background: radial-gradient(circle at center, rgba(16, 7, 34, 0.35) 0%, rgba(10, 4, 24, 0.72) 100%),
+                  linear-gradient(180deg, rgba(10, 4, 24, 0.65) 0%, rgba(16, 7, 34, 0.2) 50%, rgba(10, 4, 24, 0.75) 100%);
+    }
+  }
+
+  .luxury-hero-container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Pure typography layout - no cards, no tabs, no borders */
+  .luxury-hero-text-block {
+    max-width: 620px;
+    animation: heroTextSlide 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes heroTextSlide {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .luxury-hero-heading {
+    color: #ffffff !important;
+    font-size: clamp(2.8rem, 4.4vw, 4.8rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    margin: 0 0 1.4rem 0 !important;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.7), 0 1px 4px rgba(0, 0, 0, 0.85) !important;
+  }
+
+  .luxury-hero-subheading {
+    color: #ffffff !important;
+    font-size: clamp(1.45rem, 1.9vw, 1.75rem) !important;
+    line-height: 1.55 !important;
+    margin: 0 0 2.4rem 0 !important;
+    font-weight: 500 !important;
+    max-width: 520px;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.95) !important;
+  }
+
+  .luxury-hero-btn-wrap {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .luxury-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff !important;
+    color: #4c2882 !important;
+    font-weight: 700 !important;
+    font-size: 1.45rem !important;
+    padding: 1.2rem 2.8rem !important;
+    border-radius: 9999px !important;
+    text-decoration: none !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .luxury-hero-cta:hover {
+    background: #59359a !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(89, 53, 154, 0.5) !important;
+  }
+{% endstyle %}
+
+<div class="luxury-hero-wrapper" style="--hero-desk-height: {{ section.settings.desktop_height }}px; --hero-mob-height: {{ section.settings.mobile_height }}px;">
+  <div class="luxury-hero-bg">
+    {%- if section.settings.video != blank -%}
+      {{
+        section.settings.video
+        | video_tag:
+          autoplay: true,
+          loop: true,
+          muted: true,
+          controls: false,
+          playsinline: true,
+          class: 'luxury-hero-video'
+      }}
+    {%- elsif section.settings.video_url != blank -%}
+      <video
+        class="luxury-hero-video"
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+      >
+        <source src="{{ section.settings.video_url }}" type="video/mp4">
+      </video>
+    {%- elsif section.settings.image != blank -%}
+      <img
+        src="{{ section.settings.image | image_url: width: 2000 }}"
+        alt="{{ section.settings.heading | escape }}"
+        loading="eager"
+        width="1920"
+        height="1080"
+        class="luxury-hero-img"
+      >
+    {%- else -%}
+      <img
+        src="{{ 'perfora_hero_banner.jpg' | asset_url }}"
+        alt="Perfora Oral Care"
+        loading="eager"
+        width="1920"
+        height="1080"
+        class="luxury-hero-img"
+      >
+    {%- endif -%}
+    <div class="luxury-hero-gradient-overlay"></div>
+  </div>
+
+  <div class="page-width luxury-hero-container">
+    <div class="luxury-hero-text-block">
+      <h1 class="luxury-hero-heading">{{ section.settings.heading | escape }}</h1>
+      <p class="luxury-hero-subheading">{{ section.settings.subheading }}</p>
+      {%- if section.settings.button_label != blank -%}
+        <div class="luxury-hero-btn-wrap">
+          <a href="{{ section.settings.button_link }}" class="luxury-hero-cta">
+            {{ section.settings.button_label | escape }} &rarr;
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Luxury Hero Banner",
+  "tag": "section",
+  "class": "section-luxury-hero",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Background Video (Shopify File / Upload)",
+      "info": "Upload or pick an MP4 video file from Shopify."
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Or Background Video File URL",
+      "info": "Paste a direct MP4 file link (e.g. from Content > Files)."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image (Fallback)",
+      "info": "Displayed if no video is selected."
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Elevate Your Everyday Oral Wellness"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Peroxide-free teeth whitening powered by instant<br>color correction science."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop All Bestsellers"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 10,
+      "max": 80,
+      "step": 10,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 350,
+      "max": 650,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop Height",
+      "default": 460
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 260,
+      "max": 550,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile Height",
+      "default": 380
+    },
+    {
+      "type": "select",
+      "id": "desktop_position",
+      "label": "Desktop Video / Image Alignment",
+      "options": [
+        { "value": "center right", "label": "Center Right (Recommended)" },
+        { "value": "center center", "label": "Center Center" },
+        { "value": "center left", "label": "Center Left" }
+      ],
+      "default": "center right"
+    },
+    {
+      "type": "select",
+      "id": "mobile_position",
+      "label": "Mobile Video / Image Alignment",
+      "options": [
+        { "value": "center center", "label": "Center (Product in Center - Recommended)" },
+        { "value": "50% 50%", "label": "Center 50% 50%" },
+        { "value": "45% center", "label": "Slightly Left (45%)" },
+        { "value": "55% center", "label": "Slightly Right (55%)" },
+        { "value": "center right", "label": "Center Right" }
+      ],
+      "default": "center center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Luxury Hero Banner"
+    }
+  ]
+}
+{% endschema %}

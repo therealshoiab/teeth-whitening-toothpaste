@@ -1,3 +1,7 @@
+# Node modules & dependencies
+node_modules/
+package-lock.json
+
 # Temporary scratch files and test artifacts
 scripts/corner_*.jpg
 scripts/patch*.png
@@ -7,8 +11,13 @@ scripts/test_*.jpg
 scripts/bottom_*.jpg
 scripts/final_*.jpg
 scripts/test-connection.js
+scripts/setup_git.py
+temp_savor/
+__pycache__/
+*.pyc
 
 # Environment & System
 .env
 .DS_Store
 Thumbs.db
+

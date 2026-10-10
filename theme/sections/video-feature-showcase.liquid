@@ -1,0 +1,358 @@
+{% style %}
+  .feature-showcase-section {
+    padding: 5rem 0;
+    position: relative;
+  }
+
+  .feature-showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 989px) {
+    .feature-showcase-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .feature-tag {
+    display: inline-block;
+    background: rgba(89, 53, 154, 0.1);
+    color: #59359a;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.4rem 1.2rem;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+  }
+
+  .feature-title {
+    font-size: clamp(2.6rem, 3.5vw, 3.8rem);
+    font-weight: 800;
+    color: #1e1b4b;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .feature-desc {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #4b5563;
+    margin-bottom: 2rem;
+  }
+
+  .feature-benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .glass-benefit-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.4rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 4px 16px rgba(89, 53, 154, 0.05);
+    transition: all 0.25s ease;
+  }
+
+  .glass-benefit-card:hover {
+    transform: translateX(4px);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 24px rgba(89, 53, 154, 0.1);
+    border-color: rgba(89, 53, 154, 0.2);
+  }
+
+  .benefit-icon {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    border-radius: 12px;
+    background: rgba(89, 53, 154, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+  }
+
+  .glass-benefit-card:hover .benefit-icon {
+    background: #59359a;
+    transform: scale(1.06);
+  }
+
+  .benefit-icon svg {
+    stroke: #59359a;
+    transition: stroke 0.25s ease;
+  }
+
+  .glass-benefit-card:hover .benefit-icon svg {
+    stroke: #ffffff;
+  }
+
+  .benefit-text h4 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e1b4b;
+  }
+
+  .benefit-text p {
+    margin: 0;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    color: #6b7280;
+  }
+
+  .feature-video-glass-container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 28px;
+    padding: 0.8rem;
+    box-shadow: 0 20px 50px rgba(89, 53, 154, 0.15);
+    overflow: hidden;
+  }
+
+  .feature-showcase-video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 22px;
+    display: block;
+  }
+
+  .feature-video-floating-badge {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background: rgba(30, 20, 50, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    padding: 0.6rem 1.4rem;
+    border-radius: 9999px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .badge-pulse {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #10b981;
+  }
+
+  .feature-action {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2rem;
+  }
+
+  .feature-action .button {
+    background-color: #59359a;
+    color: #ffffff;
+    border-radius: 0 !important;
+    padding: 1.2rem 2.8rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 20px rgba(89, 53, 154, 0.25);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  .feature-action .button:hover {
+    background-color: #4a2982;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(89, 53, 154, 0.35);
+  }
+
+  @media screen and (max-width: 989px) {
+    .feature-action {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      width: 100% !important;
+      text-align: center !important;
+      margin-top: 2.5rem !important;
+      margin-bottom: 1.5rem !important;
+    }
+
+    .feature-action .button {
+      margin-left: auto !important;
+      margin-right: auto !important;
+      display: inline-flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+  }
+{% endstyle %}
+
+<div class="feature-showcase-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width">
+    <div class="feature-showcase-grid">
+      <!-- Info Column -->
+      <div class="feature-showcase-info">
+        <span class="feature-tag">Daily Whitening Ritual</span>
+        <h2 class="feature-title">{{ section.settings.title | escape }}</h2>
+        <p class="feature-desc">{{ section.settings.description | escape }}</p>
+
+        <div class="feature-benefits-list">
+          <div class="feature-benefit-item glass-benefit-card">
+            <div class="benefit-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+                <path d="M5 3v4"></path>
+                <path d="M19 17v4"></path>
+                <path d="M3 5h4"></path>
+                <path d="M17 19h4"></path>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Instant Color Correction</h4>
+              <p>Violet pigments visually counter yellow undertones in just 2 minutes for immediate brightness.</p>
+            </div>
+          </div>
+
+          <div class="feature-benefit-item glass-benefit-card">
+            <div class="benefit-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Zero Sensitivity, Peroxide-Free</h4>
+              <p>Formulated with Hydroxyapatite (n-Ha) to remineralize enamel rather than stripping it.</p>
+            </div>
+          </div>
+
+          <div class="feature-benefit-item glass-benefit-card">
+            <div class="benefit-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Clean & SLS-Free Formula</h4>
+              <p>Infused with real essential mint and fruit botanicals for clean, lasting morning breath.</p>
+            </div>
+          </div>
+
+          <div class="feature-benefit-item glass-benefit-card">
+            <div class="benefit-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 2v7.31L4.36 17.61a2 2 0 0 0 1.64 2.39h12a2 2 0 0 0 1.64-2.39L14 9.31V2"></path>
+                <path d="M8.5 2h7"></path>
+                <path d="M14 9.3 8.5 15"></path>
+              </svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Clinically Tested Efficacy</h4>
+              <p>Proven up to 4 shades whiter in 7 to 14 days without enamel degradation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-action">
+          <a href="{{ routes.all_products_collection_url }}" class="button button--primary">Shop The Routine &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Video Column -->
+      <div class="feature-showcase-media-col">
+        <div class="feature-video-glass-container">
+          {%- if section.settings.video != null -%}
+            {{
+              section.settings.video
+              | video_tag:
+                image_size: '1200x',
+                autoplay: true,
+                loop: true,
+                controls: true,
+                muted: true,
+                playsinline: true,
+                class: 'feature-showcase-video'
+            }}
+          {%- else -%}
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              controls
+              class="feature-showcase-video"
+              src="https://theperforaa.myshopify.com/cdn/shop/videos/c/vp/0173874aa20b414ba488195821ef9a17/0173874aa20b414ba488195821ef9a17.HD-1080p-4.8Mbps-96805178.mp4?v=0"
+            ></video>
+          {%- endif -%}
+          <div class="feature-video-floating-badge glass-badge">
+            <span class="badge-pulse"></span> 2 Minutes &bull; Twice Daily
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Feature Video Showcase",
+  "tag": "section",
+  "class": "section-feature-showcase",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Gentle on Enamel. Powerful on Stains."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Traditional whitening uses harsh hydrogen peroxide that causes painful tooth sensitivity. Perfora reimagines daily oral care with biocompatible minerals and targeted color science."
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Showcase Video"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-2"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature Video Showcase"
+    }
+  ]
+}
+{% endschema %}

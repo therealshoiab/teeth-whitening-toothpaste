@@ -1,0 +1,63 @@
+.trust-usp-bar-section {
+  padding: 1.5rem 0 2rem 0;
+  position: relative;
+  z-index: 5;
+  margin-top: -1.5rem;
+}
+
+.trust-usp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+@media screen and (max-width: 989px) {
+  .trust-usp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .trust-usp-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+}
+
+.glass-usp-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  box-shadow: 0 8px 24px rgba(89, 53, 154, 0.06);
+  transition: all 0.25s ease;
+}
+
+.glass-usp-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(89, 53, 154, 0.12);
+  border-color: rgba(89, 53, 154, 0.3);
+}
+
+.usp-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.usp-content h4 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e1b4b;
+}
+
+.usp-content p {
+  margin: 0.2rem 0 0 0;
+  font-size: 1.2rem;
+  color: #6b7280;
+}

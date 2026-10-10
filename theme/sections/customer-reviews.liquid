@@ -1,0 +1,582 @@
+{% style %}
+  .reviews-section {
+    padding: 5rem 0;
+    position: relative;
+  }
+
+  .reviews-header {
+    max-width: 700px;
+    margin: 0 auto 3.5rem auto;
+    text-align: center;
+  }
+
+  .reviews-tag {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.12);
+    color: #059669;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.4rem 1.2rem;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+  }
+
+  .reviews-title {
+    font-size: clamp(2.6rem, 3.5vw, 3.8rem);
+    font-weight: 800;
+    color: #1e1b4b;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.02em;
+  }
+
+  .reviews-subtitle {
+    font-size: 1.5rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+  }
+
+  .glass-score-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 24px;
+    padding: 1.8rem 2rem;
+    box-shadow: 0 10px 30px rgba(89, 53, 154, 0.08);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .score-stars {
+    color: #f59e0b;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+
+  .score-number {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #1e1b4b;
+    line-height: 1;
+  }
+
+  .score-count {
+    font-size: 1.3rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .score-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.8rem;
+  }
+
+  .trust-pill {
+    background: rgba(89, 53, 154, 0.08);
+    color: #59359a;
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 0.3rem 0.8rem;
+    border-radius: 9999px;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.8rem;
+    align-items: start;
+    margin-bottom: 2.5rem;
+  }
+
+  @media screen and (max-width: 749px) {
+    .reviews-grid {
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+    }
+  }
+
+  .glass-review-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 1.8rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+    .review-card--text-only {
+    justify-content: flex-start;
+    height: fit-content;
+    align-self: start;
+  }
+
+  .review-card--text-only .review-product-tag {
+    margin-top: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .review-card--text-only .review-text {
+    font-size: 1.45rem;
+    line-height: 1.6;
+    color: #1f2937;
+  }
+
+  .glass-review-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 12px 30px rgba(89, 53, 154, 0.12);
+    border-color: rgba(89, 53, 154, 0.25);
+  }
+
+  .review-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .reviewer-avatar {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, #6b3ba6, #4c2882);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .reviewer-name {
+    margin: 0;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #1e1b4b;
+  }
+
+  .verified-badge {
+    font-size: 1.1rem;
+    color: #059669;
+    font-weight: 600;
+  }
+
+  .review-stars {
+    color: #f59e0b;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
+
+  .review-product-tag {
+    font-size: 1.2rem;
+    color: #59359a;
+    font-weight: 600;
+    background: rgba(89, 53, 154, 0.06);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    display: inline-block;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .review-customer-image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    background: #0f0724;
+    cursor: pointer;
+  }
+
+  .review-customer-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+    transition: transform 0.35s ease;
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  .review-customer-image-wrap:hover .review-customer-image {
+    transform: scale(1.03);
+  }
+
+  .customer-photo-badge {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(16, 7, 34, 0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .review-text {
+    font-size: 1.35rem;
+    line-height: 1.5;
+    color: #374151;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .review-card-hidden {
+    display: none !important;
+  }
+
+  .reviews-action button {
+    padding: 1.2rem 2.8rem;
+    font-size: 1.4rem;
+  }
+
+  /* Lightbox Modal for Full UGC View */
+  .review-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 4, 24, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .review-modal-content {
+    position: relative;
+    max-width: 440px;
+    width: 90vw;
+    max-height: 90vh;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  @keyframes modalPop {
+    from { opacity: 0; transform: scale(0.92); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .review-modal-img-wrap {
+    background: #0d061f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 56vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .review-modal-img {
+    width: 100%;
+    max-height: 56vh;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  .review-modal-details {
+    padding: 1.6rem 2rem;
+    overflow-y: auto;
+  }
+
+  .review-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    font-size: 2.2rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    z-index: 10;
+  }
+
+  .review-modal-close:hover {
+    background: rgba(0, 0, 0, 0.9);
+  }
+{% endstyle %}
+
+<div class="reviews-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width">
+    <!-- Header & Social Proof Summary -->
+    <div class="reviews-header text-center">
+      <span class="reviews-tag">Verified Social Proof</span>
+      <h2 class="reviews-title">{{ section.settings.title | escape }}</h2>
+      <p class="reviews-subtitle">Honest feedback from verified customers on our whitening and daily oral care range.</p>
+      
+      <div class="reviews-score-card glass-score-card">
+        <div class="score-stars">★★★★★</div>
+        <div class="score-number">4.9 / 5.0</div>
+        <div class="score-count">Based on 2,840+ verified buyer reviews</div>
+        <div class="score-pills">
+          <span class="trust-pill">✓ 100% Enamel-Safe</span>
+          <span class="trust-pill">✓ 0% Sensitivity</span>
+          <span class="trust-pill">✓ Clinically Tested</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review Grid (40 Verified Reviews) -->
+    <div class="reviews-grid" id="PerforaReviewsGrid">
+      {%- assign reviews_data = "
+        Rohan Mehta|Activated Charcoal Toothpaste & Brush Duo|★★★★★|Arrived in pristine condition. The soft charcoal bristles paired with the SLS-free paste give an incredibly deep, squeaky clean feeling after every brush.|Verified Buyer|ugc_review_2.jpg###
+        Ananya Kapoor|Teeth Whitening Strips (Classic Mint)|★★★★★|Courier envelope arrived today on my kitchen counter! Packed securely in padded wrap. The strips are so gentle and cause zero sensitivity on my enamel.|Verified Buyer|ugc_review_3.jpg###
+        Sneha Patel|Teeth Whitening Strips (Classic Mint)|★★★★★|Unboxed my courier parcel on the front porch! Love having the individual sachets handy in my bag. They stick firmly and peel cleanly with no mess.|Verified Buyer|ugc_review_4.jpg###
+        Karan Malhotra|Purple Teeth Whitening Serum|★★★★★|My whitening serum arrived safely on the patio table. Just 2 pumps on my toothbrush right before heading out cancels yellow tones instantly.|Verified Buyer|ugc_review_5.jpg###
+        Ishita Reddy|Perfora Purple Magic Whitening Toothpaste|★★★★★|Holding my new tube fresh out of the delivery box! The grape mint flavor is delicious and it visually brightens my teeth right after brushing.|Verified Buyer|ugc_review_6.jpg###
+        Aditya Nair|Perfora Purple Magic Whitening Toothpaste|★★★★★|Delivered right to my door. Used this purple paste for a week now and my coffee stains have visibly softened without any tooth irritation.|Verified Buyer|ugc_review_7.jpg###
+        Deepak Goyal|Teeth Whitening Strips (Classic Mint)|★★★★★|Fresh box of Classic Mint strips in hand! Super easy 20-minute morning routine while catching up on morning news. Enamel feels completely protected.|Verified Buyer|ugc_review_8.jpg###
+        Pooja Agarwal|Teeth Whitening Strips (Classic Mint)|★★★★★|Opening the seal on my new box! The sachets are so compact and travel-friendly. Crisp mint flavor and no messy gel slipping off teeth.|Verified Buyer|ugc_review_9.jpg###
+        Siddharth Rao|Purple Teeth Whitening Serum|★★★★★|Unboxing my purple serum bottle! The pump mechanism works smoothly and the color correction provides an instant smile boost before video calls.|Verified Buyer|ugc_review_10.jpg###
+        Ritu Mukherjee|Perfora Purple Magic Whitening Toothpaste|★★★★★|Bathroom sink test after my morning brush! The gentle purple lather leaves teeth feeling polished and squeaky clean without chalky residue.|Verified Buyer|ugc_review_11.jpg###
+        Neha Chawla|Perfora Purple Magic Whitening Toothpaste|★★★★★|Pulled fresh from the delivery carton. The tube looks stunning on my bathroom counter and the daily whitening results speak for themselves.|Verified Buyer|ugc_review_12.jpg###
+        Varun Das|Teeth Whitening Strips (Classic Mint)|★★★★★|Checking the box in the mirror before my first session. Strips adhere firmly to teeth without sliding. Saw a noticeable shade difference after strip 3!|Verified Buyer|ugc_review_13.jpg###
+        Simran Kaur|Activated Charcoal Whitening Toothpaste|★★★★★|Holding the charcoal tube fresh from the delivery courier. Doesn't stain white washbasins like messy charcoal powders and keeps breath fresh all day.|Verified Buyer|ugc_review_14.jpg###
+        Kavita Menon|Teeth Whitening Strips (Classic Mint)|★★★★★|Picked up my delivery on the go! Compact box fits easily in my purse. Gives a fresh clean sparkle to teeth wherever you travel.|Verified Buyer|ugc_review_15.jpg###
+        Aman Gupta|Perfora Whitening Essentials Routine|★★★★★|Unboxing the full shipping parcel! Everything arrived neatly packed with zero damage. Top tier packaging and luxury presentation throughout.|Verified Buyer|ugc_review_16.jpg###
+        Manish Tiwari|Teeth Whitening Strips (Classic Mint)|★★★★★|Unboxed in my kitchen this morning! 6 treatment sachets inside. Noticeable difference on tea stains after just two sessions. Super impressed.|Verified Buyer|ugc_review_17.jpg###
+        Swati Jain|Teeth Whitening Strips (Classic Mint)|★★★★★|Morning sunlight unboxing by the window! Love how thin and flexible these strips are. Zero tooth tingling or gum discomfort.|Verified Buyer|ugc_review_18.jpg###
+        Pallavi Bose|Purple Teeth Whitening Strips|★★★★★|Opening a fresh purple strip sachet! Fits comfortably across upper and lower teeth. Dissolves stubborn yellow undertones seamlessly.|Verified Buyer|ugc_review_19.jpg###
+        Shruti Pillai|Purple Teeth Whitening Strips|★★★★★|Sunlit unboxing of the purple strips packet! The color science behind this works wonders. Perfect quick smile prep before evening events.|Verified Buyer|ugc_review_20.jpg###
+        Kunal Sethi|Purple Teeth Whitening Strips|★★★★★|Fresh packet opened over my vanity counter. Thin, comfortable strip with great grip. Peels off cleanly with zero sticky goo.|Verified Buyer|ugc_review_21.jpg###
+        Anjali Bhatt|Purple Teeth Whitening Serum|★★★★★|Opening my bubble mailer! The pump bottle is leak-proof and compact. Cancels yellow tint in 30 seconds after brushing.|Verified Buyer|ugc_review_22.jpg###
+        Nandini Roy|Perfora Complete Whitening Combo|★★★★★|Parcel delivery unboxed on the floor! Ordered the complete whitening kit for my family. Visibly cleaner, brighter smiles across the board.|Verified Buyer|ugc_review_23.jpg###
+        Abhishek Pandey|Perfora Whitening Essentials|★★★★★|Opening my first box of Perfora products. The seal and packaging quality are exceptional. Gentle on gums and clinically effective.|Verified Buyer|ugc_review_24.jpg###
+        Mayank Chopra|Teeth Whitening Strips (Classic Mint)|★★★★★|Delivered right to my office desk! Pop these on during quiet morning email sessions. Crisp mint taste and zero enamel sensitivity.|Verified Buyer|ugc_review_25.jpg###
+        Komal Singhal|Perfora Ultimate Oral Care Bundle|★★★★★|Full unboxing haul laid out on the dining table! Every product feels premium and biocompatible. A true luxury upgrade for everyday oral care.|Verified Buyer|ugc_review_26.jpg###
+        Ayesha Khan|Purple Whitening Toothpaste Serum|★★★★★|Sleek purple serum bottle perched on the courier box. Instant optical whitening effect without harsh hydrogen peroxide burns.|Verified Buyer|ugc_review_27.jpg###
+        Arjun Verma|Teeth Whitening Strips (Classic Mint)|★★★★★|Restock laid out on the bed! Individual treatment pouches make it easy to maintain consistent whitening sessions throughout the month.|Verified Buyer|ugc_review_28.jpg###
+        Vikram Singhania|Perfora Purple Magic Whitening Toothpaste|★★★★★|Unboxed at my study desk! The purple color-correcting paste has completely transformed my smile. Tastes refreshing and feels weightless.|Verified Buyer|ugc_review_29.jpg###
+        Tanvi Joshi|Teeth Whitening Strips (Classic Mint)|★★★★★|Cozy weekend unboxing on the duvet! Tried the first sachet before bed and woke up with noticeably cleaner, whiter teeth.|Verified Buyer|ugc_review_30.jpg###
+        Meera Sen|Teeth Whitening Strips (Classic Mint)|★★★★★|Set up right by the bathroom counter. The strips gently lift years of stubborn tea and wine stains without stripping protective enamel.|Verified Buyer|ugc_review_31.jpg###
+        Gaurav Khanna|Activated Charcoal Toothpaste Combo|★★★★★|Sink setup with the charcoal paste and matching brush. Outstanding plaque removal and deep breath freshness all day long.|Verified Buyer|ugc_review_32.jpg###
+        Nikhil Bansal|Perfora Purple Magic Duo (Paste + Strips)|★★★★★|Both purple magic essentials unboxed together! The strips remove deep discoloration while the toothpaste maintains that clean daily sparkle.|Verified Buyer|ugc_review_33.jpg###
+        Divya Deshmukh|Perfora Purple Magic Whitening Toothpaste|★★★★★|Sitting pretty on my bathroom vanity! The grape mint aroma is so refreshing and teeth look noticeably brighter from day one.|Verified Buyer|ugc_review_34.jpg###
+        Harsh Vardhan|Perfora Purple Magic Whitening Toothpaste|★★★★★|Daily vanity fixture by the mirror. Free of harsh chemicals and SLS. Leaves my mouth feeling ultra clean and teeth visibly radiant.|Verified Buyer|ugc_review_35.jpg###
+        Rahul Saxena|Activated Charcoal Whitening Toothpaste|★★★★★|Set up in the washroom. The gentle charcoal lather lifts surface stains effectively without abrasive grit that harms enamel.|Verified Buyer|ugc_review_36.jpg###
+        Tarun Bhatia|Perfora Teeth Whitening Combo Set|★★★★★|Spread out across the kitchen island! Everything arrived safely. High quality formulation that delivers real noticeable results.|Verified Buyer|ugc_review_37.jpg###
+        Pooja Varma|Activated Charcoal Toothpaste & Brush Set|★★★★★|Unboxing the charcoal oral care set on the dining table! Charcoal infused bristles and fluoride-free paste provide an unbeatable clean.|Verified Buyer|ugc_review_38.jpg###
+        Suresh Iyer|Teeth Whitening Strips (Classic Mint)|★★★★★|Unboxed with morning tea! Fast shipping and genuine products. Very gentle on teeth with zero lingering sensitivity.|Verified Buyer|ugc_review_39.jpg###
+        Vivek Murthy|Teeth Whitening Strips (Classic Mint)|★★★★★|Courier box opened on the living room floor! The strips fit securely along the gum line and peel off easily after 20 minutes.|Verified Buyer|ugc_review_40.jpg###
+        Shalini Nair|Purple Teeth Whitening Strips|★★★★★|Floor unboxing of the purple strips box! Love how modern and aesthetic the packaging is. My teeth look noticeably brighter for weekend gatherings.|Verified Buyer|ugc_review_41.jpg###
+        Rajesh Kulkarni|Perfora Complete Whitening Collection|★★★★★|Unpacked the whole box of Perfora essentials! Highest quality oral care products I have bought in India. Super happy with the purchase.|Verified Buyer|ugc_review_42.jpg###
+        Meenakshi Sundaram|Activated Charcoal Daily Cleaning Set|★★★★★|Unboxed the charcoal paste and brush set on the counter. Leaves my mouth remarkably clean and eliminates stubborn coffee tint effortlessly.|Verified Buyer|ugc_review_43.jpg###
+        Alok Sengupta|Perfora Travel Oral Care Kit|★★★★★|Unzipping the travel pouch with my Perfora essentials! Perfectly compact for business trips. Keeps my smile bright and fresh on the road.|Verified Buyer|ugc_review_44.jpg###
+        Sunita Chhabra|Purple Teeth Whitening Serum|★★★★★|Beautiful purple pump bottle sitting on my living room coffee table. Takes under a minute in the morning and gives an instant photo-ready glow.|Verified Buyer|ugc_review_45.jpg###
+        Varun Kapoor|Purple Teeth Whitening Serum|★★★★★|Elegant bottle sitting on our hallway console. 2 pumps onto the brush removes yellow tones before morning meetings. Total game changer.|Verified Buyer|ugc_review_46.jpg###
+        Kritika Mehra|Teeth Whitening Strips (Classic Mint)|★★★★★|Laid out on my bed before my evening routine! So much more comfortable than clinical dental bleaching trays. Absolutely zero sensitivity.|Verified Buyer|ugc_review_47.jpg###
+        Devendra Joshi|Teeth Whitening Strips (Classic Mint)|★★★★★|Handy on my bedside table! Pop one on while reading before sleep. Teeth look noticeably whiter and cleaner after just a few nights.|Verified Buyer|ugc_review_48.jpg
+      " | split: "###" -%}
+
+      {%- for review_str in reviews_data -%}
+        {%- assign r_parts = review_str | split: "|" -%}
+        {%- if r_parts.size >= 4 -%}
+          {%- assign img_filename = r_parts[5] | default: 'none' | strip -%}
+          {%- assign has_photo = false -%}
+          {%- if img_filename != blank and img_filename != 'none' -%}
+            {%- assign has_photo = true -%}
+          {%- endif -%}
+          <div class="review-card glass-review-card{% unless has_photo %} review-card--text-only{% endunless %}">
+            <div class="review-card-top">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">{{ r_parts[0] | slice: 0, 1 | strip }}</div>
+                <div>
+                  <h4 class="reviewer-name">{{ r_parts[0] | strip }}</h4>
+                  <span class="verified-badge">✓ {{ r_parts[4] | default: 'Verified Buyer' | strip }}</span>
+                </div>
+              </div>
+              <div class="review-stars">{{ r_parts[2] | strip }}</div>
+            </div>
+            
+            {%- if has_photo -%}
+              <div
+                class="review-customer-image-wrap js-review-modal-trigger"
+                data-img-src="{{ img_filename | asset_url }}"
+                data-author="{{ r_parts[0] | strip | escape }}"
+                data-product="{{ r_parts[1] | strip | escape }}"
+                data-review="{{ r_parts[3] | strip | escape }}"
+              >
+                <img
+                  src="{{ img_filename | asset_url }}"
+                  alt="{{ r_parts[0] | strip }} holding {{ r_parts[1] | strip }}"
+                  loading="lazy"
+                  width="400"
+                  height="500"
+                  class="review-customer-image"
+                >
+                <span class="customer-photo-badge">📷 Customer Photo</span>
+              </div>
+            {%- endif -%}
+
+            <div class="review-product-tag">Product: {{ r_parts[1] | strip }}</div>
+            <p class="review-text">"{{ r_parts[3] | strip }}"</p>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <!-- Toggle Show More Button -->
+    <div class="reviews-action text-center">
+      <button type="button" id="LoadMoreReviewsBtn" class="button button--secondary">
+        Show All 47 Reviews
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div id="reviewPhotoModal" class="review-modal" style="display: none;" onclick="closeReviewModal(event)">
+  <div class="review-modal-content" onclick="event.stopPropagation()">
+    <button type="button" class="review-modal-close" onclick="closeReviewModal(event)">&times;</button>
+    <div class="review-modal-img-wrap">
+      <img id="reviewModalImg" src="{{ 'ugc_review_1.jpg' | asset_url }}" alt="Customer Review Photo" width="600" height="950" class="review-modal-img">
+    </div>
+    <div class="review-modal-details">
+      <div id="reviewModalProduct" class="review-product-tag" style="margin-bottom: 0.6rem;"></div>
+      <h4 id="reviewModalAuthor" class="reviewer-name" style="margin-bottom: 0.8rem;"></h4>
+      <p id="reviewModalText" class="review-text"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openReviewModal(imgSrc, author, product, text) {
+    const modal = document.getElementById('reviewPhotoModal');
+    if (!modal) return;
+    const modalImg = document.getElementById('reviewModalImg');
+    if (modalImg) modalImg.src = imgSrc;
+    const prodEl = document.getElementById('reviewModalProduct');
+    if (prodEl) prodEl.textContent = 'Product: ' + product;
+    const authorEl = document.getElementById('reviewModalAuthor');
+    if (authorEl) authorEl.textContent = author + ' (Verified Buyer)';
+    const textEl = document.getElementById('reviewModalText');
+    if (textEl) textEl.textContent = '“' + text + '”';
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeReviewModal(e) {
+    const modal = document.getElementById('reviewPhotoModal');
+    if (modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Attach click listeners to all review cards using data attributes
+    document.querySelectorAll('.js-review-modal-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function() {
+        const imgSrc = this.getAttribute('data-img-src');
+        const author = this.getAttribute('data-author');
+        const product = this.getAttribute('data-product');
+        const text = this.getAttribute('data-review');
+        openReviewModal(imgSrc, author, product, text);
+      });
+    });
+
+    const btn = document.getElementById('LoadMoreReviewsBtn');
+    const grid = document.getElementById('PerforaReviewsGrid');
+    if (btn && grid) {
+      const cards = grid.querySelectorAll('.review-card');
+      // Initially show first 6 on mobile, 9 on desktop
+      const initialCount = window.innerWidth < 750 ? 6 : 9;
+      cards.forEach((card, idx) => {
+        if (idx >= initialCount) {
+          card.classList.add('review-card-hidden');
+        }
+      });
+      btn.addEventListener('click', function() {
+        const isExpanded = btn.getAttribute('data-expanded') === 'true';
+        if (isExpanded) {
+          cards.forEach((card, idx) => {
+            if (idx >= initialCount) card.classList.add('review-card-hidden');
+          });
+          btn.textContent = 'Show All 47 Reviews';
+          btn.setAttribute('data-expanded', 'false');
+          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          cards.forEach(card => card.classList.remove('review-card-hidden'));
+          btn.textContent = 'Show Less';
+          btn.setAttribute('data-expanded', 'true');
+        }
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Customer Reviews",
+  "tag": "section",
+  "class": "section-customer-reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "What Customers Are Saying After Using Our Products"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer Reviews"
+    }
+  ]
+}
+{% endschema %}

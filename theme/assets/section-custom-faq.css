@@ -1,0 +1,105 @@
+.faq-section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.faq-header {
+  max-width: 680px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+}
+
+.faq-tag {
+  display: inline-block;
+  background: rgba(89, 53, 154, 0.1);
+  color: #59359a;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 1.2rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.faq-title {
+  font-size: clamp(2.6rem, 3.5vw, 3.8rem);
+  font-weight: 800;
+  color: #1e1b4b;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+.faq-subtitle {
+  font-size: 1.5rem;
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+.faq-accordion-container {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Glassmorphism FAQ Card */
+.glass-faq-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  padding: 1.6rem 2rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.glass-faq-card[open] {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px rgba(89, 53, 154, 0.1);
+  border-color: rgba(89, 53, 154, 0.25);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  list-style: none;
+  user-select: none;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-icon {
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #59359a;
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+.glass-faq-card[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(89, 53, 154, 0.08);
+  font-size: 1.45rem;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.faq-answer p {
+  margin: 0;
+}

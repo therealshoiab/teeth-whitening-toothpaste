@@ -1,0 +1,165 @@
+.feature-showcase-section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.feature-showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+@media screen and (max-width: 989px) {
+  .feature-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.feature-tag {
+  display: inline-block;
+  background: rgba(89, 53, 154, 0.1);
+  color: #59359a;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 1.2rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: clamp(2.6rem, 3.5vw, 3.8rem);
+  font-weight: 800;
+  color: #1e1b4b;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em;
+}
+
+.feature-desc {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.feature-benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Glassmorphism Benefit Card */
+.glass-benefit-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.4rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(89, 53, 154, 0.05);
+  transition: all 0.25s ease;
+}
+
+.glass-benefit-card:hover {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 24px rgba(89, 53, 154, 0.1);
+  border-color: rgba(89, 53, 154, 0.2);
+}
+
+.benefit-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  background: rgba(89, 53, 154, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.glass-benefit-card:hover .benefit-icon {
+  background: #59359a;
+  transform: scale(1.06);
+}
+
+.benefit-icon svg {
+  stroke: #59359a;
+  transition: stroke 0.25s ease;
+}
+
+.glass-benefit-card:hover .benefit-icon svg {
+  stroke: #ffffff;
+}
+
+.benefit-text h4 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e1b4b;
+}
+
+.benefit-text p {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  color: #6b7280;
+}
+
+/* Video Column */
+.feature-video-glass-container {
+  position: relative;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 28px;
+  padding: 0.8rem;
+  box-shadow: 0 20px 50px rgba(89, 53, 154, 0.15);
+  overflow: hidden;
+}
+
+.feature-showcase-video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 22px;
+  display: block;
+}
+
+.feature-video-floating-badge {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  background: rgba(30, 20, 50, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 9999px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.badge-pulse {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+}
